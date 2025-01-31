@@ -41,4 +41,4 @@ class UserRegistrationSerializers(serializers.ModelSerializer):
 class ToDoSerializers(serializers.ModelSerializer):
     class Meta:
         model = ToDo
-        fields = ('description', 'user', 'due_date')
+        fields = ('id','description', 'user', 'due_date', 'status')
