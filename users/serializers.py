@@ -2,7 +2,7 @@ from django.contrib.auth.backends import UserModel
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
 from rest_framework import serializers
-from .models import User
+from .models import User, ToDo
 
 
 class EmailTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -36,3 +36,9 @@ class UserRegistrationSerializers(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return User.objects.create_user(email=validated_data['email'],password=validated_data['password'])
+
+
+class ToDoSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ToDo
+        fields = ('id','description', 'user', 'due_date', 'status')

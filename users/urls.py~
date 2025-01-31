@@ -2,7 +2,6 @@ from django.urls import path, include
 from .views import EmailTokenObtainPairView, UserSignUpView, ToDoView
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework.routers import DefaultRouter
-
 router = DefaultRouter()
 router.register('todo', ToDoView)
 
@@ -13,3 +12,4 @@ urlpatterns = [
     path('', include(router.urls)),
 
 ]
+
