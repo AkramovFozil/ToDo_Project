@@ -35,6 +35,7 @@ class ToDo(models.Model):
     description = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     due_date = models.DateField()
+    status = models.CharField(max_length=20, choices=[('in_progress', 'In Progress'), ('Done', 'Done')])
 
     def __str__(self):
         return self.description
